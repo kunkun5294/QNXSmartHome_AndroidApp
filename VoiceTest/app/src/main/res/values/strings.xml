@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VoiceTest</string>
+    <string name="dialog_message">Dialog Message</string>
+    <string name="dialog_title">Dialog Title</string>
+    <string name="alert_dialog_ok">Confirm</string>
+    <string name="alert_dialog_cancel">Deny</string>
+    <string name="confirm_command_alert_dialog_title">Is this the command you meant? </string>
+</resources>
