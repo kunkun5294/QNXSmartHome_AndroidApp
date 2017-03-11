@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">VoiceTest</string>
-    <string name="dialog_message">Dialog Message</string>
-    <string name="dialog_title">Dialog Title</string>
-    <string name="alert_dialog_ok">Confirm</string>
-    <string name="alert_dialog_cancel">Deny</string>
+    <string name="app_name">QNX Home</string>
+    <string name="ok">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="login">Sign In</string>
     <string name="confirm_command_alert_dialog_title">Is this the command you meant? </string>
+    <string name="title_activity_login">QNX Home</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
