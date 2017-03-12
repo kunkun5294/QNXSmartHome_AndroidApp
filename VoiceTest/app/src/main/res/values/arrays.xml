@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="menu_main">
+    <item>Sensor Status</item>
+    <item>Relay Status &amp; Control</item>
+    <item>Automation &amp; Notifications Config.</item>
+    <item>User Account Settings</item>
+    <item>System Settings</item>
+    <item>Log Out</item>
+</string-array>
+</resources>

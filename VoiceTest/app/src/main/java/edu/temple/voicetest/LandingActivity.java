@@ -4,19 +4,14 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.speech.RecognizerIntent;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import java.util.List;
-import static android.speech.SpeechRecognizer.*;
-
-public class MainActivity extends AppCompatActivity {
+public class LandingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.button_signup)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SignUpDialogFragment frag = SignUpDialogFragment.newInstance("Sign Up");
+                frag.show(getFragmentManager(), "dialog");
             }
         });
         ((Button)findViewById(R.id.button_login)).setOnClickListener(new View.OnClickListener() {
@@ -37,6 +33,43 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public static class SignUpDialogFragment extends DialogFragment {
+        public static SignUpDialogFragment newInstance(String title) {
+            SignUpDialogFragment frag = new SignUpDialogFragment();
+            Bundle args = new Bundle();
+            args.putString("title", title);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            // Get the layout inflater
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            String title = getArguments().getString("title");
+            // Inflate and set the layout for the dialog
+            // Pass null as the parent view because its going in the dialog layout
+            builder.setView(inflater.inflate(R.layout.dialog_signup, null))
+                    // Add action buttons
+                    .setTitle(title)
+                    .setPositiveButton(R.string.signup, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            // sign up the user ...
+
+                            ((LandingActivity)getActivity()).signIn("JohnDoe", "12345");
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            SignUpDialogFragment.this.getDialog().cancel();
+                        }
+                    });
+            return builder.create();
+        }
+    }
 
     public static class LoginDialogFragment extends DialogFragment {
         public static LoginDialogFragment newInstance(String title) {
@@ -62,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton(R.string.login, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            // sign in the user ...
+                            ((LandingActivity)getActivity()).signIn("JohnDoe", "12345");
                         }
                     })
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -72,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
                     });
             return builder.create();
         }
+    }
+
+    private void signIn(String username, String houseId){
+        Intent intent = new Intent(LandingActivity.this, HomeScreenActivity.class);
+        intent.putExtra("username", username).putExtra("houseId", houseId);
+        startActivity(intent);
     }
 
     /*
@@ -132,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                     .setNegativeButton(R.string.alert_dialog_cancel,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    ((MainActivity)getActivity()).displaySpeechRecognizer();
+                                    ((LandingActivity)getActivity()).displaySpeechRecognizer();
                                 }
                             }
                     )

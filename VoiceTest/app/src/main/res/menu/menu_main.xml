@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/group_item1"
+        android:title="Sensor Status"/>
+    <item android:id="@+id/group_item2"
+        android:title="Relay Status &amp; Control"/>
+    <item android:id="@+id/group_item3"
+        android:title="Automation &amp; Notifications Config."/>
+    <item android:id="@+id/group_item4"
+        android:title="User Account Settings"/>
+    <item android:id="@+id/group_item5"
+        android:title="System Settings"/>
+    <item android:id="@+id/group_item6"
+        android:title="Log Out"/>
+</menu>
