@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
-public class LandingActivity extends AppCompatActivity {
+public class StartupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class LandingActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int id) {
                             // sign up the user ...
 
-                            ((LandingActivity)getActivity()).signIn("JohnDoe", "12345");
+                            ((StartupActivity)getActivity()).signIn("JohnDoe", "12345");
                         }
                     })
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -95,7 +95,7 @@ public class LandingActivity extends AppCompatActivity {
                     .setPositiveButton(R.string.login, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            ((LandingActivity)getActivity()).signIn("JohnDoe", "12345");
+                            ((StartupActivity)getActivity()).signIn("JohnDoe", "12345");
                         }
                     })
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -108,7 +108,7 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     private void signIn(String username, String houseId){
-        Intent intent = new Intent(LandingActivity.this, HomeScreenActivity.class);
+        Intent intent = new Intent(StartupActivity.this, HomeScreenActivity.class);
         intent.putExtra("username", username).putExtra("houseId", houseId);
         startActivity(intent);
     }
@@ -171,7 +171,7 @@ public class LandingActivity extends AppCompatActivity {
                     .setNegativeButton(R.string.alert_dialog_cancel,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    ((LandingActivity)getActivity()).displaySpeechRecognizer();
+                                    ((StartupActivity)getActivity()).displaySpeechRecognizer();
                                 }
                             }
                     )
