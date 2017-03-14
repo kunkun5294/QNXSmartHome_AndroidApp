@@ -13,9 +13,4 @@
         android:title="System Settings"/>
     <item android:id="@+id/group_item6"
         android:title="Log Out"/>
-    <item
-        android:id="@+id/action_voice"
-        android:icon="@mipmap/ic_mic"
-        android:title="@string/action_voice"
-        app:showAsAction="ifRoom"/>
 </menu>
